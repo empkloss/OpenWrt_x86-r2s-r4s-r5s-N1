@@ -3,10 +3,10 @@
 
 /dts-v1/;
 
-#include "qcom-ipq6018.dtsi"
-#include "qcom-ipq6018-rpm-regulator.dtsi"
-#include "qcom-ipq6018-cpr-regulator.dtsi"
-#include "qcom-ipq6018-cp-cpu.dtsi"
+#include "ipq6018.dtsi"
+#include "ipq6018-upstreamable.dtsi"
+#include "ipq6018-ess.dtsi"
+
 #include <dt-bindings/input/input.h>
 #include <dt-bindings/gpio/gpio.h>
 
@@ -334,4 +334,10 @@
 		spi-max-frequency = <50000000>;
 		use-default-sizes;
 	};
+};
+&wifi {
+	status = "okay";
+};
+&wifi {
+	qcom,ath11k-calibration-variant = "Redmi-AX5";
 };
