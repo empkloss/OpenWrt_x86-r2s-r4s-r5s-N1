@@ -6,6 +6,7 @@
  	glinet_gl-axt1800 \
 +	qihoo_v6 \
 +	cmiot_ax18 \
++	redmi,ax5|\
  	netgear_rax120v2 \
  	netgear_wax218 \
  	prpl_haze \
@@ -14,6 +15,7 @@
  $(eval $(call generate-ipq-wifi-package,glinet_gl-ax1800,GL.iNet GL-AX1800))
  $(eval $(call generate-ipq-wifi-package,glinet_gl-axt1800,GL.iNet GL-AXT1800))
 +$(eval $(call generate-ipq-wifi-package,qihoo_v6,QIHOO 360V6))
++$(eval $(call generate-ipq-wifi-package,redmi_ax5,REDMI AX5))
 +$(eval $(call generate-ipq-wifi-package,cmiot_ax18,CMIOT AX18))
  $(eval $(call generate-ipq-wifi-package,netgear_rax120v2,Netgear RAX120v2))
  $(eval $(call generate-ipq-wifi-package,netgear_wax218,Netgear WAX218))
@@ -64,6 +66,19 @@
 +endef
 +TARGET_DEVICES += zn_m2
 +
++define Device/redmi_ax5
++	$(call Device/FitImage)
++	$(call Device/UbiFit)
++	DEVICE_VENDOR := REDMI
++	DEVICE_MODEL := ax5
++	BLOCKSIZE := 128k
++	PAGESIZE := 2048
++	DEVICE_DTS_CONFIG := config@cp03-c1
++	DEVICE_PACKAGES := ipq-wifi-redmi_ax5
++	SOC := ipq6018
++endef
++TARGET_DEVICES += redmi_ax5
++
  define Device/glinet_gl-ax1800
  	$(call Device/FitImage)
  	$(call Device/UbiFit)
@@ -76,6 +91,7 @@
  	case "$board" in
 +	cmiot,ax18|\
 +	qihoo,v6|\
++	redmi,ax5|\
 +	zn,m2)
 +		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3" "eth0"
 +		;;
@@ -114,6 +130,7 @@
 +	cmiot,ax18|\
 +	qihoo,v6|\
 +	zn,m2|\
++	redmi,ax5|\
  	glinet,gl-axt1800|\
  	glinet,gl-ax1800)
  		nand_do_upgrade "$1"
@@ -128,6 +145,7 @@
 +	linksys,mr7350|\
 +	qihoo,v6|\
 +	zn,m2|\
++	redmi,ax5|\
  	glinet,gl-axt1800|\
  	glinet,gl-ax1800)
  		caldata_extract "0:art" 0x1000 0x10000
