@@ -13,7 +13,7 @@
 / {
 	#address-cells = <0x2>;
 	#size-cells = <0x2>;
-	model = "REDMI AX%";
+	model = "REDMI AX5";
 	compatible = "redmi,ax5", "qcom,ipq6018";
 	interrupt-parent = <&intc>;
 	qcom,msm-id = <0x192 0x0>;
