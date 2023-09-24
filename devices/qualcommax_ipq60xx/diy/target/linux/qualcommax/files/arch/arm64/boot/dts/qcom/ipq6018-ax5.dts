@@ -13,8 +13,8 @@
 / {
 	#address-cells = <0x2>;
 	#size-cells = <0x2>;
-	model = "Xiaomi Router RM1800";
-	compatible = "xiaomi,rm1800", "qcom,ipq6018";
+	model = "REDMI AX%";
+	compatible = "redmi,ax5", "qcom,ipq6018";
 	interrupt-parent = <&intc>;
 	qcom,msm-id = <0x192 0x0>;
 
