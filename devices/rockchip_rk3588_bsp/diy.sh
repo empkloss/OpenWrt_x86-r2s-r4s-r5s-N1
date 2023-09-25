@@ -27,5 +27,7 @@ mv -f target/linux/rockchip/image/armv8.mk target/linux/rockchip/image/rk3588_bs
 
 mv -f target/linux/rockchip/armv8 target/linux/rockchip/rk3588_bsp
 
+sed -i "s/BUILD_SUBTARGET:=armv8/BUILD_SUBTARGET:=rk3588_bsp/" package/boot/uboot-rockchip/Makefile
+
 #curl -sfL https://raw.githubusercontent.com/coolsnowwolf/lede/master/package/kernel/linux/modules/video.mk -o package/kernel/linux/modules/video.mk
 
